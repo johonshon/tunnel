@@ -32,8 +32,6 @@ sleep 3.0
 clear
 cd $HOME
 pkg install wget -y
-pkg install php -y
-pkg install python -y
 pkg install mpv -y
 wget --no-check-certificate https://bin.equinox.io/a/nmkK3DkqZEB/ngrok-2.2.8-linux-arm64.zip
 unzip ngrok-2.2.8-linux-arm64.zip
