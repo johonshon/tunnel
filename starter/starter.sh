@@ -14,21 +14,6 @@ echo " "
 printf "        \e[1;92m NGROK is starting....!\e[0m\n"
 sleep 2.0
 echo " "
-checkngrok=$(ps aux | grep -o "ngrok" | head -n1)
-checkphp=$(ps aux | grep -o "php" | head -n1)
-checkssh=$(ps aux | grep -o "ssh" | head -n1)
-if [[ $checkngrok == *'ngrok'* ]]; then
-pkill -f -2 ngrok > /dev/null 2>&1
-killall -2 ngrok > /dev/null 2>&1
-fi
-if [[ $checkphp == *'php'* ]]; then
-pkill -f -2 php > /dev/null 2>&1
-killall -2 php > /dev/null 2>&1
-fi
-if [[ $checkssh == *'ssh'* ]]; then
-pkill -f -2 ssh > /dev/null 2>&1
-killall ssh > /dev/null 2>&1
-fi
 if [[ -e sendlink ]]; then
 rm -rf sendlink
 fi
@@ -47,7 +32,7 @@ cd $HOME
 cd $HOME/tunnel
 bash tunnel.sh
 else
-./ngrok http $ports
+./ngrok tcp $ports
 fi
 cd $HOME
 cd $HOME/tunnel
@@ -69,21 +54,6 @@ printf "        \e[1;92m        NGROK is starting....!\e[0m\n"
 echo " "
 fi
 echo " "
-checkngrok=$(ps aux | grep -o "ngrok" | head -n1)
-checkphp=$(ps aux | grep -o "php" | head -n1)
-checkssh=$(ps aux | grep -o "ssh" | head -n1)
-if [[ $checkngrok == *'ngrok'* ]]; then
-pkill -f -2 ngrok > /dev/null 2>&1
-killall -2 ngrok > /dev/null 2>&1
-fi
-if [[ $checkphp == *'php'* ]]; then
-pkill -f -2 php > /dev/null 2>&1
-killall -2 php > /dev/null 2>&1
-fi
-if [[ $checkssh == *'ssh'* ]]; then
-pkill -f -2 ssh > /dev/null 2>&1
-killall ssh > /dev/null 2>&1
-fi
 if [[ -e sendlink ]]; then
 rm -rf sendlink
 fi
@@ -102,7 +72,7 @@ cd $HOME
 cd $HOME/tunnel
 bash tunnel.sh
 else
-./ngrok http $ports
+./ngrok tcp $ports
 fi
 cd $HOME
 cd $HOME/tunnel
